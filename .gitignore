@@ -1,3 +1,4 @@
 *.mp4
 *.jsonl
 test.ipynb
+*.csv
