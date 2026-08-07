@@ -124,3 +124,25 @@ def load_n_frames(path , n_frames ) :
 
     cap.release()
     return frames , fps 
+
+def frames_to_duration(segment, fps):
+    start_frame, end_frame = segment
+
+    start_seconds = start_frame / fps
+    end_seconds = end_frame / fps
+
+    def format_time(seconds):
+        hours = int(seconds // 3600)
+        minutes = int((seconds % 3600) // 60)
+        seconds_remainder = seconds % 60
+
+        return (
+            f"{hours:02d}:"
+            f"{minutes:02d}:"
+            f"{seconds_remainder:06.3f}"
+        )
+
+    return (
+        format_time(start_seconds),
+        format_time(end_seconds)
+    )
